@@ -62,20 +62,21 @@ EOV
 sub scan
 {
     my $opts = shift;
+    my $request = $scan_request;
 
     # build request
     my $mx = $opts->{'m'} || $DEFAULT_MX;
     my $target = $opts->{'b'} || $DEFAULT_TARGET;
-    $scan_request =~ s/<MX>/$mx/;
-    $scan_request =~ s/<TARGET>/$target/;
+    $request =~ s/<MX>/$mx/;
+    $request =~ s/<TARGET>/$target/;
 
     if (exists($opts->{'n'})) {
-        print $scan_request;
+        print $request;
         return 0;
     }
 }
 
 sub parse_ssdp_response
 {
-    
+     
 }
